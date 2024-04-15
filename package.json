@@ -1,0 +1,24 @@
+{
+  "name": "api_automated_tests",
+  "version": "1.0.0",
+  "description": "Test automation project built on playwright",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:api": "playwright test tests/api"
+  },
+  "keywords": [],
+  "author": "Pantovic Marko",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@playwright/test": "^1.42.1",
+    "@types/node": "^20.12.7",
+    "dotenv": "^16.4.5"
+  },
+  "dependencies": {
+    "chai": "^5.1.0",
+    "winston": "^3.13.0"
+  }
+}
