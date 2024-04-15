@@ -2,6 +2,9 @@ import {test } from '@playwright/test';
 import { expect } from 'chai'; 
 import UserService from '../../models/User.js';
 import { faker } from '@faker-js/faker';
+import dotenv from 'dotenv'; 
+dotenv.config();
+
 
 
 
@@ -12,7 +15,7 @@ test.describe('Register a new user', () => {
   
     test('POSITIVE-1: should register a new user and return status 201', async () => {
         const requestBody = {
-            "password":process.env.PASSWORD,
+            "password": process.env.PASSWORD,
             "userName": faker.internet.userName()
         }
         const response = await userService.registerUser(requestBody)
