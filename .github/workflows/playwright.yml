@@ -23,7 +23,7 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run API E2E tests
-      run: npm run test:api --shard=${{ matrix.shard}}
+      run: npm run test:api
 
     - name: Upload blob report to GitHub Actions Artifacts
       if: ${{ !cancelled() }}

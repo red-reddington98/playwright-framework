@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "test:api": "playwright test tests/api"
+    "test:api": "playwright test tests/api",
+    "test:api:verbose":"playwright test tests/api --ui",
+    "merge-reports": "playwright merge-reports --reporter html ./blob-report"
   },
   "keywords": [],
   "author": "Pantovic Marko",
