@@ -1,6 +1,6 @@
 import {test } from '@playwright/test';
 import { expect } from 'chai'; 
-import UserService from '../../models/User.js';
+import AccountService from '../../api/services/AccountService.js'
 import { faker } from '@faker-js/faker';
 import dotenv from 'dotenv'; 
 dotenv.config();
@@ -9,16 +9,16 @@ dotenv.config();
 
 
 
-test.describe('Register a new user', () => {
+test.describe('Create a new user', () => {
 
-    const userService = new UserService()
+    const accountService = new AccountService()
   
-    test('POSITIVE-1: should register a new user and return status 201', async () => {
+    test('POSITIVE-1: should create a new user and return status 201', async () => {
         const requestBody = {
             "password": process.env.PASSWORD,
             "userName": faker.internet.userName()
         }
-        const response = await userService.registerUser(requestBody)
+        const response = await accountService.createUser(requestBody)
         //userID is a field in the response body which value is assigned to userId variable
         const { userID: userId, username} = await response.json()
         console.log(userId)
@@ -36,7 +36,7 @@ test.describe('Register a new user', () => {
             "password": "",
             "userName": ""
         }
-        const response = await userService.registerUser(requestBody)
+        const response = await accountService.createUser(requestBody)
         expect(response.status()).to.be.eql(400)
         expect((await response.json()).message).to.include('UserName and Password required.')
     });
@@ -48,7 +48,7 @@ test.describe('Register a new user', () => {
             "password": null,
             "userName": null
         }
-        const response = await userService.registerUser(requestBody)
+        const response = await accountService.createUser(requestBody)
         expect(response.status()).to.be.eql(400)
         expect((await response.json()).message).to.include('UserName and Password required.')
     });
@@ -59,7 +59,7 @@ test.describe('Register a new user', () => {
             password: process.env.PASSWORD,
             userName: 1
         }
-        const response = await userService.registerUser(requestBody)
+        const response = await accountService.createUser(requestBody)
         expect(response.status()).to.be.eql(400)
         expect((await response.json()).message).to.include('Invalid username')
     });         
