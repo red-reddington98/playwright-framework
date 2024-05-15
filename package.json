@@ -1,13 +1,12 @@
 {
   "name": "api_automated_tests",
   "version": "1.0.0",
-  "description": "Test automation project built on playwright",
+  "description": "Test automation project that streamlines API and UI mono repo implementation",
   "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
     "test:api": "playwright test tests/api",
-    "test:api:verbose":"playwright test tests/api --ui",
     "merge-reports": "playwright merge-reports --reporter html ./blob-report"
   },
   "keywords": [],
@@ -15,8 +14,9 @@
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
-    "@playwright/test": "^1.42.1",
+    "@playwright/test": "^1.43.1",
     "@types/node": "^20.12.7",
+    "allure-playwright": "^2.15.1",
     "dotenv": "^16.4.5"
   },
   "dependencies": {
