@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "strict": true, // Enables a stricter type-checking mode and activates a range of type-checking complier options to catch potential issues early in the development process
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "strictNullChecks": true, // Enforces proper handling of null and undefined values to prevent common null-reference errors
+      "strictBindCallApply": true, // Provides checks on the use of functions like bind, call, and apply
+      "strictFunctionTypes": true, // Enforces checking of function types, particularly related to contravariant parameter types
+      "importHelpers": true, // Allows the TypeScript compiler to import helper functions from the tslib module
+      "baseUrl": "./",
+      "paths": {
+      "tslib" : ["node_modules/tslib/tslib.d.ts"]
+      }
+      
+    },
+    
+    // Type Checking
+    "noImplicitOverride": true, // Ensures that overriding methods in a subclass are marked with the 'override' keyword
+    "noImplicitReturns": true, // Ensures that all code paths in a function explicitly return a value
+    "noFallthroughCasesInSwitch": true, // Prevents code from 'falling through' from one case in a switch statement to another
+    "noUnusedLocals": true, // Compiler reports an error if a local variable is declared but not used in the function
+    "noUnusedParameters": true, // Compiler reports an error if a function contains parameters that are declared but not used
+    "strictPropertyInitialization": true, // Ensures that each property declared in a class gets initialized either in constructor or by a default value
+    
+    "include": [
+      "api/**/*.ts",
+      "common/**/*.ts",
+      "test-data/**/*.ts",
+      "pages/ui/**/*.ts"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  }
+  

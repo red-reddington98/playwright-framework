@@ -6,8 +6,11 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "test:api": "playwright test tests/api",
-    "merge-reports": "playwright merge-reports --reporter html ./blob-report"
+    "test:api": "playwright test api",
+    "merge-reports": "playwright merge-reports --reporter html ./blob-report",
+    "test-headed":"npx playwright test ui --headed",
+    "test-debug":"playwright test --debug",
+    "test:verbose":"playwright test --trace on"
   },
   "keywords": [],
   "author": "Pantovic Marko",
@@ -17,10 +20,12 @@
     "@playwright/test": "^1.43.1",
     "@types/node": "^20.12.7",
     "allure-playwright": "^2.15.1",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "tslib": "^2.6.2"
   },
   "dependencies": {
     "chai": "^5.1.0",
+    "typescript": "^5.4.5",
     "winston": "^3.13.0"
   }
 }
