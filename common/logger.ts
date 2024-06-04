@@ -1,8 +1,10 @@
 import * as winston from 'winston';
+import {LoggerOptions} from '../pages/api/types/LoggerOptions'
 
 
 export default class Logger {
-  constructor(options = {}) {
+  private logger: winston.Logger;
+  constructor(options: LoggerOptions = {}) {
     const {
       level = 'info',
       transports = [new winston.transports.Console()]
@@ -20,19 +22,19 @@ export default class Logger {
     });
   }
 
-  log(level, message) {
+  log(level: string, message: string): void {
     this.logger.log(level, message);
   }
 
-  info(message) {
+  info(message: string): void {
     this.logger.info(message);
   }
 
-  warn(message) {
+  warn(message: string): void {
     this.logger.warn(message);
   }
 
-  error(message) {
+  error(message: string): void {
     this.logger.error(message);
   }
 
